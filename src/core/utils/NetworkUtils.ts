@@ -1,8 +1,11 @@
 import { AxiosRequestConfig } from "axios";
+import * as Network from "expo-network";
 
 export const checkNetworkConnection = async (): Promise<boolean> => {
-  // Mocking network check, in real app use @react-native-community/netinfo
-  return true;
+  const networkState = await Network.getNetworkStateAsync();
+  return (
+    (networkState.isConnected && networkState.isInternetReachable) || false
+  );
 };
 
 export const logCurlCommand = (config: AxiosRequestConfig) => {

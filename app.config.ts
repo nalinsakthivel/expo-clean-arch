@@ -24,6 +24,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     package: "com.nalinssn.struc_poc",
     edgeToEdgeEnabled: true,
     predictiveBackGestureEnabled: false,
+    newArchEnabled: true,
   },
   web: {
     output: "static",

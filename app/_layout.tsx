@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import "@/core/di/container";
 import {
   setAuthTokenProvider,
@@ -7,7 +8,6 @@ import { LocalStore } from "@/data/storage/LocalStore";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack, router } from "expo-router";
 import { useEffect } from "react";
-import "reflect-metadata";
 
 // Create a client
 const queryClient = new QueryClient({

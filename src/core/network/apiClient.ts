@@ -1,6 +1,9 @@
 import { env } from "@/core/config/env";
-import { toAppError } from "@/core/errors/AppError";
+import { AppError, toAppError } from "@/core/errors/AppError";
 import axios, { AxiosError, AxiosHeaders } from "axios";
+import { MyConstants } from "../constants/MyConstants";
+import { DeviceInfoUtils } from "../utils/DeviceInfoUtils";
+import { checkNetworkConnection, logCurlCommand } from "../utils/NetworkUtils";
 
 type AuthTokenProvider = () => Promise<string> | string;
 type UnauthorizedHandler = () => Promise<void> | void;
@@ -13,15 +16,13 @@ export const setAuthTokenProvider = (provider: AuthTokenProvider): void => {
   authTokenProvider = provider;
 };
 
-export const setUnauthorizedHandler = (
-  handler?: UnauthorizedHandler,
-): void => {
+export const setUnauthorizedHandler = (handler?: UnauthorizedHandler): void => {
   unauthorizedHandler = handler;
 };
 
 export const apiClient = axios.create({
   baseURL: env.apiBaseUrl,
-  timeout: 30000,
+  timeout: MyConstants.API_TIMEOUT,
   headers: {
     "Content-Type": "application/json",
     "Cache-Control": "no-cache",
@@ -32,6 +33,10 @@ export const apiClient = axios.create({
 
 apiClient.interceptors.request.use(async (config) => {
   const token = await authTokenProvider();
+  const isNetworkConnected = await checkNetworkConnection();
+  if (!isNetworkConnected) {
+    throw new AppError("No network connection", "NETWORK_ERROR");
+  }
 
   if (token) {
     if (!config.headers) {
@@ -41,10 +46,13 @@ apiClient.interceptors.request.use(async (config) => {
     if (config.headers instanceof AxiosHeaders) {
       config.headers.set("Authorization", `Bearer ${token}`);
     } else {
-      (config.headers as Record<string, string>).Authorization = `Bearer ${token}`;
+      (config.headers as Record<string, string>).Authorization =
+        `Bearer ${token}`;
     }
   }
-
+  if (DeviceInfoUtils.isDevMode()) {
+    logCurlCommand(config);
+  }
   return config;
 });
 

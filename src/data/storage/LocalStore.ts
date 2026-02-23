@@ -1,35 +1,23 @@
-import { getOrCreateEncryptionKey } from "@/core/utils/SecurityUtils";
-import { createMMKV, MMKV } from "react-native-mmkv";
+import * as SecureStore from "expo-secure-store";
 import { MyStorageConstants } from "./MyStorageConstants";
 
-let secureStorage: MMKV | null = null;
-
-export async function getSecureStorage() {
-  if (!secureStorage) {
-    const key = await getOrCreateEncryptionKey();
-
-    secureStorage = createMMKV({
-      id: "secure",
-      encryptionKey: key,
-    });
-  }
-
-  return secureStorage;
-}
+export const getSecureStorage = async () => {
+  return SecureStore;
+};
 
 export const LocalStore = {
-  async getToken() {
-    const storage = await getSecureStorage();
-    return storage.getString(MyStorageConstants.AUTH_TOKEN) || "";
+  async getToken(): Promise<string> {
+    const value = await SecureStore.getItemAsync(MyStorageConstants.AUTH_TOKEN);
+    return value ?? "";
   },
 
-  async setToken(token: string) {
-    const storage = await getSecureStorage();
-    storage.set(MyStorageConstants.AUTH_TOKEN, token);
+  async setToken(token: string): Promise<void> {
+    await SecureStore.setItemAsync(MyStorageConstants.AUTH_TOKEN, token, {
+      keychainAccessible: SecureStore.WHEN_UNLOCKED,
+    });
   },
 
-  async clearAll() {
-    const storage = await getSecureStorage();
-    storage.clearAll();
+  async clearAll(): Promise<void> {
+    await SecureStore.deleteItemAsync(MyStorageConstants.AUTH_TOKEN);
   },
 };

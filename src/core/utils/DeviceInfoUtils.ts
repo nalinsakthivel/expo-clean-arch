@@ -1,7 +1,7 @@
 import Constants from "expo-constants";
 
 export const DeviceInfoUtils = {
-  isDev: () => {
+  isDevMode: () => {
     return Constants.debugMode;
   },
 };

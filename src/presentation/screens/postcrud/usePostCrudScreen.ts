@@ -10,7 +10,7 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const POSTS_QUERY_KEY = ["posts"] as const;
 
@@ -25,7 +25,7 @@ interface UpdatePostForm {
   body: string;
 }
 
-export const usePostsViewModel = () => {
+export const usePostCrudScreen = () => {
   const queryClient = useQueryClient();
   const getPostsUseCase = useMemo(() => container.resolve(GetPostsUseCase), []);
   const createPostUseCase = useMemo(
@@ -43,10 +43,10 @@ export const usePostsViewModel = () => {
 
   const {
     data: posts = [],
-    isLoading,
-    isRefetching,
+    isLoading: loading,
+    isRefetching: refreshing,
     error,
-    refetch,
+    refetch: refresh,
   } = useQuery({
     queryKey: POSTS_QUERY_KEY,
     queryFn: () => getPostsUseCase.execute(),
@@ -56,6 +56,7 @@ export const usePostsViewModel = () => {
     mutationFn: (payload: CreatePostForm) =>
       createPostUseCase.execute({ userId: "1", ...payload }),
     onSuccess: (newPost) => {
+      // Update list cache immediately to keep UI responsive.
       queryClient.setQueryData<Post[]>(POSTS_QUERY_KEY, (previous = []) => [
         newPost,
         ...previous,
@@ -81,19 +82,78 @@ export const usePostsViewModel = () => {
     },
   });
 
+  // Shared form state for create/edit mode.
+  const [editingPostId, setEditingPostId] = useState<string | null>(null);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
+
+  const isSubmitting = createMutation.isPending || updateMutation.isPending;
+  const deletingPostId = deleteMutation.isPending
+    ? (deleteMutation.variables ?? null)
+    : null;
+  const queryError = error ? getErrorMessage(error) : null;
+
+  const clearForm = useCallback(() => {
+    setEditingPostId(null);
+    setTitle("");
+    setBody("");
+    setFormError(null);
+  }, []);
+
+  const submit = useCallback(async () => {
+    try {
+      setFormError(null);
+      if (editingPostId) {
+        await updateMutation.mutateAsync({ id: editingPostId, title, body });
+      } else {
+        await createMutation.mutateAsync({ title, body });
+      }
+      clearForm();
+    } catch (submitError) {
+      const message =
+        submitError instanceof Error ? submitError.message : "Request failed";
+      setFormError(message);
+    }
+  }, [body, clearForm, createMutation, editingPostId, title, updateMutation]);
+
+  const onEditPost = useCallback((post: Post) => {
+    setEditingPostId(post.id);
+    setTitle(post.title);
+    setBody(post.body);
+    setFormError(null);
+  }, []);
+
+  const onDeletePost = useCallback(
+    async (postId: string) => {
+      try {
+        await deleteMutation.mutateAsync(postId);
+      } catch (deleteError) {
+        const message =
+          deleteError instanceof Error ? deleteError.message : "Delete failed";
+        setFormError(message);
+      }
+    },
+    [deleteMutation],
+  );
+
   return {
     posts,
-    loading: isLoading,
-    refreshing: isRefetching,
-    error: error ? getErrorMessage(error) : null,
-    createPost: createMutation.mutateAsync,
-    updatePost: updateMutation.mutateAsync,
-    deletePost: deleteMutation.mutateAsync,
-    creating: createMutation.isPending,
-    updating: updateMutation.isPending,
-    deletingPostId: deleteMutation.isPending
-      ? (deleteMutation.variables ?? null)
-      : null,
-    refresh: refetch,
+    loading,
+    refreshing,
+    refresh,
+    queryError,
+    title,
+    setTitle,
+    body,
+    setBody,
+    formError,
+    editingPostId,
+    isSubmitting,
+    deletingPostId,
+    clearForm,
+    submit,
+    onEditPost,
+    onDeletePost,
   };
 };

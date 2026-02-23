@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -9,74 +9,30 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { PostCard } from "../components/PostCard";
-import { theme } from "../theme/theme";
-import { usePostsViewModel } from "../viewmodels/usePostsViewModel";
+import { PostCard } from "../../components/PostCard";
+import { theme } from "../../theme/theme";
+import { usePostCrudScreen } from "./usePostCrudScreen";
 
 export const PostCrudScreen: React.FC = () => {
   const {
     posts,
     loading,
     refreshing,
-    error,
-    createPost,
-    updatePost,
-    deletePost,
-    creating,
-    updating,
-    deletingPostId,
     refresh,
-  } = usePostsViewModel();
-
-  const [editingPostId, setEditingPostId] = useState<string | null>(null);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [formError, setFormError] = useState<string | null>(null);
-
-  const isSubmitting = creating || updating;
-
-  const clearForm = () => {
-    setEditingPostId(null);
-    setTitle("");
-    setBody("");
-    setFormError(null);
-  };
-
-  const submit = async () => {
-    try {
-      setFormError(null);
-      if (editingPostId) {
-        await updatePost({ id: editingPostId, title, body });
-      } else {
-        await createPost({ title, body });
-      }
-      clearForm();
-    } catch (submitError) {
-      const message =
-        submitError instanceof Error ? submitError.message : "Request failed";
-      setFormError(message);
-    }
-  };
-
-  const onEdit = useCallback((postId: string, postTitle: string, postBody: string) => {
-    setEditingPostId(postId);
-    setTitle(postTitle);
-    setBody(postBody);
-    setFormError(null);
-  }, []);
-
-  const onDelete = useCallback(
-    async (postId: string) => {
-      try {
-        await deletePost(postId);
-      } catch (deleteError) {
-        const message =
-          deleteError instanceof Error ? deleteError.message : "Delete failed";
-        setFormError(message);
-      }
-    },
-    [deletePost],
-  );
+    queryError,
+    title,
+    setTitle,
+    body,
+    setBody,
+    formError,
+    editingPostId,
+    isSubmitting,
+    deletingPostId,
+    clearForm,
+    submit,
+    onEditPost,
+    onDeletePost,
+  } = usePostCrudScreen();
 
   const renderHeader = () => (
     <View style={styles.formCard}>
@@ -97,8 +53,8 @@ export const PostCrudScreen: React.FC = () => {
         style={[styles.input, styles.multilineInput]}
       />
 
-      {(formError || error) && (
-        <Text style={styles.errorText}>{formError ?? error}</Text>
+      {(formError || queryError) && (
+        <Text style={styles.errorText}>{formError ?? queryError}</Text>
       )}
 
       <View style={styles.formActions}>
@@ -143,8 +99,8 @@ export const PostCrudScreen: React.FC = () => {
         renderItem={({ item }) => (
           <PostCard
             post={item}
-            onEdit={(post) => onEdit(post.id, post.title, post.body)}
-            onDelete={onDelete}
+            onEdit={onEditPost}
+            onDelete={onDeletePost}
             isDeleting={deletingPostId === item.id}
           />
         )}

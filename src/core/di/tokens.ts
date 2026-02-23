@@ -1,7 +1,4 @@
 export const DI_TOKENS = {
-  UserApiService: "UserApiService",
-  UserRemoteDataSource: "UserRemoteDataSource",
-  UserRepository: "UserRepository",
   PostApiService: "PostApiService",
   PostRemoteDataSource: "PostRemoteDataSource",
   PostRepository: "PostRepository",
