@@ -1,19 +1,22 @@
+import { makeStyles } from "@/presentation/theme/makeStyles";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   ActivityIndicator,
   FlatList,
   Pressable,
-  StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { PostCard } from "../../components/PostCard";
-import { theme } from "../../theme/theme";
-import { usePostCrudScreen } from "./usePostCrudScreen";
+import { usePostCrudScreen } from "./usePostCrud";
 
 export const PostCrudScreen: React.FC = () => {
+  const styles = useStyles();
+  const { t } = useTranslation();
+
   const {
     posts,
     loading,
@@ -36,17 +39,19 @@ export const PostCrudScreen: React.FC = () => {
 
   const renderHeader = () => (
     <View style={styles.formCard}>
-      <Text style={styles.header}>JSONPlaceholder CRUD</Text>
-      <Text style={styles.subHeader}>Create, update, and delete posts</Text>
+      <Text style={styles.header}>{t("post.header")}</Text>
+      <Text style={styles.subHeader}>{t("post.subHeader")}</Text>
 
       <TextInput
-        placeholder="Post title"
+        placeholder={t("post.titlePlaceholder")}
+        placeholderTextColor={styles.placeholder.color}
         value={title}
         onChangeText={setTitle}
         style={styles.input}
       />
       <TextInput
-        placeholder="Post body"
+        placeholder={t("post.bodyPlaceholder")}
+        placeholderTextColor={styles.placeholder.color}
         value={body}
         onChangeText={setBody}
         multiline
@@ -65,15 +70,17 @@ export const PostCrudScreen: React.FC = () => {
         >
           <Text style={styles.primaryButtonText}>
             {isSubmitting
-              ? "Saving..."
+              ? t("post.saving")
               : editingPostId
-                ? "Update Post"
-                : "Create Post"}
+                ? t("post.updateBtn")
+                : t("post.createBtn")}
           </Text>
         </Pressable>
         {editingPostId && (
           <Pressable style={styles.secondaryButton} onPress={clearForm}>
-            <Text style={styles.secondaryButtonText}>Cancel Edit</Text>
+            <Text style={styles.secondaryButtonText}>
+              {t("post.cancelEdit")}
+            </Text>
           </Pressable>
         )}
       </View>
@@ -84,8 +91,8 @@ export const PostCrudScreen: React.FC = () => {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.centered}>
-          <ActivityIndicator size="large" />
-          <Text style={styles.loadingText}>Loading posts...</Text>
+          <ActivityIndicator size="large" color={styles.placeholder.color} />
+          <Text style={styles.loadingText}>{t("post.loading")}</Text>
         </View>
       </SafeAreaView>
     );
@@ -104,6 +111,11 @@ export const PostCrudScreen: React.FC = () => {
             isDeleting={deletingPostId === item.id}
           />
         )}
+        removeClippedSubviews={true}
+        windowSize={10}
+        maxToRenderPerBatch={10}
+        updateCellsBatchingPeriod={50}
+        initialNumToRender={10}
         ListHeaderComponent={renderHeader}
         contentContainerStyle={styles.listContent}
         refreshing={refreshing}
@@ -116,7 +128,7 @@ export const PostCrudScreen: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const useStyles = makeStyles((theme) => ({
   safeArea: {
     flex: 1,
     backgroundColor: theme.colors.background,
@@ -151,14 +163,18 @@ const styles = StyleSheet.create({
     color: theme.colors.textMuted,
     marginBottom: theme.spacing.md,
   },
+  placeholder: {
+    color: theme.colors.secondary,
+  },
   input: {
     borderWidth: 1,
-    borderColor: "#d5d9de",
+    borderColor: theme.colors.border,
     borderRadius: theme.borderRadius.sm,
     paddingHorizontal: theme.spacing.sm,
     paddingVertical: theme.spacing.sm,
     marginBottom: theme.spacing.sm,
-    backgroundColor: "#fff",
+    backgroundColor: theme.colors.surface,
+    color: theme.colors.text,
   },
   multilineInput: {
     minHeight: 88,
@@ -195,4 +211,4 @@ const styles = StyleSheet.create({
     color: theme.colors.error,
     marginBottom: theme.spacing.sm,
   },
-});
+}));

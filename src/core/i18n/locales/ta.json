@@ -1,0 +1,35 @@
+{
+  "post": {
+    "header": "JSONPlaceholder CRUD",
+    "subHeader": "பதிவுகளை உருவாக்கவும், திருத்தவும் மற்றும் நீக்கவும்",
+    "titlePlaceholder": "பதிவின் தலைப்பு",
+    "bodyPlaceholder": "பதிவின் உள்ளடக்கம்",
+    "saving": "சேமிக்கப்படுகிறது...",
+    "updateBtn": "பதிவை புதுப்பிக்கவும்",
+    "createBtn": "பதிவை உருவாக்கவும்",
+    "cancelEdit": "திருத்துவதை ரத்துசெய்",
+    "loading": "பதிவுகள் ஏற்றப்படுகின்றன...",
+    "edit": "திருத்து",
+    "deleting": "நீக்கப்படுகிறது...",
+    "delete": "நீக்கு"
+  },
+  "settings": {
+    "title": "அமைப்புகள்",
+    "language": "மொழி",
+    "theme": "தீம்",
+    "darkTheme": "இருண்ட",
+    "lightTheme": "ஒளி",
+    "systemTheme": "கணினி",
+    "english": "ஆங்கிலம்",
+    "tamil": "தமிழ்"
+  },
+  "tabs": {
+    "posts": "பதிவுகள்",
+    "settings": "அமைப்புகள்"
+  },
+  "detail": {
+    "title": "பதிவு விவரங்கள்",
+    "loading": "விவரம் ஏற்றப்படுகிறது...",
+    "notFound": "பதிவு காணப்படவில்லை."
+  }
+}

@@ -1,17 +1,17 @@
 import Icon from "@expo/vector-icons/AntDesign";
-import { Image } from "expo-image";
+import { Image, ImageContentFit } from "expo-image";
 import React, { useCallback, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   ImageSourcePropType,
   ImageStyle,
-  StyleProp,
   Modal,
   Platform,
-  ViewStyle,
+  StyleProp,
   StyleSheet,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -20,7 +20,7 @@ interface CustomImageProps {
   fallbackSource?: ImageSourcePropType;
   style?: StyleProp<ImageStyle>;
   containerStyle?: StyleProp<ViewStyle>;
-  contentFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
+  contentFit?: ImageContentFit;
   zoomEnabled?: boolean;
   tintColor?: string;
 }

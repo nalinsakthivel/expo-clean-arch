@@ -24,12 +24,12 @@ export interface UpdatePostRequestDTO {
 
 export class PostModel {
   static fromJson(json: PostDTO): Post {
-    return new Post(
-      String(json.id),
-      String(json.userId),
-      json.title,
-      json.body,
-    );
+    return {
+      id: String(json.id),
+      userId: String(json.userId),
+      title: json.title,
+      body: json.body,
+    };
   }
 
   static fromJsonList(items: PostDTO[]): Post[] {

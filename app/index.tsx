@@ -1,5 +1,6 @@
-import { PostCrudScreen } from "../src/presentation/screens/postcrud/PostCrudScreen";
+import { ROUTES } from '@/presentation/navigation/Routes';
+import { Redirect } from 'expo-router';
 
 export default function Index() {
-  return <PostCrudScreen />;
+  return <Redirect href={ROUTES.TABS} />;
 }

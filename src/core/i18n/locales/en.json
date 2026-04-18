@@ -1,0 +1,35 @@
+{
+  "post": {
+    "header": "JSONPlaceholder CRUD",
+    "subHeader": "Create, update, and delete posts",
+    "titlePlaceholder": "Post title",
+    "bodyPlaceholder": "Post body",
+    "saving": "Saving...",
+    "updateBtn": "Update Post",
+    "createBtn": "Create Post",
+    "cancelEdit": "Cancel Edit",
+    "loading": "Loading posts...",
+    "edit": "Edit",
+    "deleting": "Deleting...",
+    "delete": "Delete"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "darkTheme": "Dark",
+    "lightTheme": "Light",
+    "systemTheme": "System",
+    "english": "English",
+    "tamil": "Tamil"
+  },
+  "tabs": {
+    "posts": "Posts",
+    "settings": "Settings"
+  },
+  "detail": {
+    "title": "Post Details",
+    "loading": "Loading detail...",
+    "notFound": "Post not found."
+  }
+}

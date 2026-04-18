@@ -54,6 +54,7 @@ src/
 │   ├── theme/
 │   ├── utils/
 │   ├── types/
+│   ├── store/               # Redux store & slices
 │   └── config/
 │
 └── assets/
@@ -116,7 +117,7 @@ Implements repository interfaces and manages data sources.
 **Example**
 
 ```
-data/api/authApi.ts
+data/api/authApi.ts          # RTK Query definition
 data/repositories/AuthRepositoryImpl.ts
 data/storage/tokenStorage.ts
 ```
@@ -163,7 +164,7 @@ Responsible for navigation & providers.
 **Responsibilities**
 
 * Theme provider
-* Query client provider
+* Redux Provider (Store setup)
 * Safe area setup
 
 ---
@@ -189,8 +190,8 @@ Initial screen loader & app bootstrapping.
 
 ### State & Data
 
-✅ Zustand (lightweight state)
-✅ TanStack Query (server state)
+✅ Redux Toolkit (global state)
+✅ RTK Query (server state & data fetching)
 
 ### Storage
 
@@ -241,14 +242,36 @@ Initial screen loader & app bootstrapping.
 
 ---
 
-# 🧱 Example Use Case
+# 🧱 Examples
 
 ## domain/usecases/LoginUser.ts
 
-```
+```typescript
 export const loginUser = async (repo, credentials) => {
   return await repo.login(credentials);
 };
+```
+
+## data/api/authApi.ts (RTK Query)
+
+```typescript
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+export const authApi = createApi({
+  reducerPath: 'authApi',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  endpoints: (builder) => ({
+    login: builder.mutation({
+      query: (credentials) => ({
+        url: 'login',
+        method: 'POST',
+        body: credentials,
+      }),
+    }),
+  }),
+});
+
+export const { useLoginMutation } = authApi;
 ```
 
 ---

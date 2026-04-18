@@ -1,5 +1,3 @@
-import axios, { AxiosError, HttpStatusCode } from "axios";
-
 export type AppErrorCode =
   | "NETWORK_ERROR"
   | "UNAUTHORIZED"
@@ -45,65 +43,64 @@ const extractMessage = (data: unknown): string | undefined => {
   return undefined;
 };
 
-export const toAppError = (error: unknown): AppError => {
+export const toAppError = (error: any): AppError => {
   if (error instanceof AppError) return error;
 
-  if (axios.isAxiosError(error)) {
-    const axiosError = error as AxiosError;
-    const status = axiosError.response?.status;
-    const serverMessage = extractMessage(axiosError.response?.data);
+  if (error && typeof error === "object" && "status" in error) {
+    const status = error.status;
+    const serverMessage = extractMessage(error.data);
 
-    if (!status) {
+    if (status === "FETCH_ERROR" || status === "TIMEOUT_ERROR" || !status) {
       return new AppError(
         serverMessage ?? "Network error. Please check your connection.",
         "NETWORK_ERROR",
         undefined,
-        axiosError.response?.data,
+        error.data,
       );
     }
 
     switch (status) {
-      case HttpStatusCode.BadRequest:
+      case 400:
         return new AppError(
           serverMessage ?? "Bad request.",
           "BAD_REQUEST",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
-      case HttpStatusCode.Unauthorized:
+      case 401:
         return new AppError(
           serverMessage ?? "Unauthorized request.",
           "UNAUTHORIZED",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
-      case HttpStatusCode.Forbidden:
+      case 403:
         return new AppError(
           serverMessage ?? "Forbidden request.",
           "FORBIDDEN",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
-      case HttpStatusCode.NotFound:
+      case 404:
         return new AppError(
           serverMessage ?? "Resource not found.",
           "NOT_FOUND",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
-      case HttpStatusCode.Conflict:
+      case 409:
         return new AppError(
           serverMessage ?? "Conflict error.",
           "CONFLICT",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
       default:
         return new AppError(
           serverMessage ?? "Unexpected server error.",
           "SERVER_ERROR",
-          status,
-          axiosError.response?.data,
+          status as number,
+          error.data,
         );
     }
   }

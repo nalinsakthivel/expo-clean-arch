@@ -1,9 +1,9 @@
 import { Post } from "../entities/Post";
 
 export interface CreatePostInput {
-  userId: string;
   title: string;
   body: string;
+  userId: string;
 }
 
 export interface UpdatePostInput {
@@ -14,7 +14,7 @@ export interface UpdatePostInput {
 
 export interface PostRepository {
   getPosts(): Promise<Post[]>;
-  createPost(input: CreatePostInput): Promise<Post>;
-  updatePost(input: UpdatePostInput): Promise<Post>;
+  createPost(post: CreatePostInput): Promise<Post>;
+  updatePost(post: UpdatePostInput): Promise<Post>;
   deletePost(id: string): Promise<void>;
 }
