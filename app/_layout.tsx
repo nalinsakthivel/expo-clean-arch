@@ -16,6 +16,11 @@ function RootContent() {
         initialRouteName="index"
         screenOptions={{
           headerShown: false,
+          contentStyle: {
+            backgroundColor: "transparent",
+          },
+          statusBarStyle: isDark ? "light" : "dark",
+          statusBarTranslucent: true,
         }}
       >
         <Stack.Screen name="index" />

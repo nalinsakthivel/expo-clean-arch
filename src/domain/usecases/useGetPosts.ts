@@ -17,6 +17,6 @@ export const useGetPosts = (): UseGetPostsResult => {
     isLoading,
     error: error ? "Failed to synchronize posts." : null,
     refetch,
-    isFetching
+    isFetching,
   };
 };

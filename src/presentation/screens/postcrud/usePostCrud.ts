@@ -13,18 +13,13 @@ export const usePostCrudScreen = () => {
     refetch: refresh,
   } = useGetPosts();
 
-  const {
-    createPost,
-    updatePost,
-    deletePost,
-    isCreating,
-    isUpdating,
-  } = useMutatePost();
+  const { createPost, updatePost, deletePost, isCreating, isUpdating } =
+    useMutatePost();
 
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
   const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [body, setBody] = useState<string>("");
   const [formError, setFormError] = useState<string | null>(null);
 
   const isSubmitting = isCreating || isUpdating;
@@ -68,7 +63,7 @@ export const usePostCrudScreen = () => {
         setDeletingPostId(null);
       }
     },
-    [deletePost]
+    [deletePost],
   );
 
   return {

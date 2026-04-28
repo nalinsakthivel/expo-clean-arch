@@ -20,7 +20,7 @@ const rawBaseQuery = fetchBaseQuery({
       throw new AppError("No network connection", "NETWORK_ERROR");
     }
 
-    const token = await LocalStore.getToken();
+    const token = (await LocalStore.getToken()) || "";
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
     }
