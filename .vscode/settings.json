@@ -4,5 +4,7 @@
     "source.organizeImports": "never",
     "source.sortMembers": "never"
   },
-  "i18n-ally.localesPaths": []
+  "i18n-ally.localesPaths": ["src/core/i18n/locales"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": ["react-i18next"]
 }
