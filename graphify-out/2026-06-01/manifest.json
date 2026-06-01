@@ -1,0 +1,347 @@
+{
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/.vscode/extensions.json": {
+    "mtime": 1780306751.547102,
+    "ast_hash": "b2354ba0225f5689d13651ec0fac0de0",
+    "semantic_hash": "b2354ba0225f5689d13651ec0fac0de0"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/.vscode/settings.json": {
+    "mtime": 1780306751.547294,
+    "ast_hash": "d7043a1e50c10e265537e83ea5106fcb",
+    "semantic_hash": "d7043a1e50c10e265537e83ea5106fcb"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app.config.ts": {
+    "mtime": 1780306751.5481124,
+    "ast_hash": "955e82db1b500cd62f6db8d1f9952480",
+    "semantic_hash": "955e82db1b500cd62f6db8d1f9952480"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/(tabs)/_layout.tsx": {
+    "mtime": 1780306751.5485046,
+    "ast_hash": "85bccf0d829389cf26bd77bef762d417",
+    "semantic_hash": "85bccf0d829389cf26bd77bef762d417"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/(tabs)/index.tsx": {
+    "mtime": 1780306751.548697,
+    "ast_hash": "f9ee01df60e28fdab2ab03ddd9b12cbd",
+    "semantic_hash": "f9ee01df60e28fdab2ab03ddd9b12cbd"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/(tabs)/settings.tsx": {
+    "mtime": 1780306751.5488799,
+    "ast_hash": "dafaef94bb62f31f1e2131f33836afbc",
+    "semantic_hash": "dafaef94bb62f31f1e2131f33836afbc"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/_layout.tsx": {
+    "mtime": 1780306751.549129,
+    "ast_hash": "8a5d9bc72fd0e9b7878c5709d488e309",
+    "semantic_hash": "8a5d9bc72fd0e9b7878c5709d488e309"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/index.tsx": {
+    "mtime": 1780306751.549363,
+    "ast_hash": "98c78eafbd6354af0f2db168b1964821",
+    "semantic_hash": "98c78eafbd6354af0f2db168b1964821"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/app/post/[id].tsx": {
+    "mtime": 1780306751.5496905,
+    "ast_hash": "5e148b32d5c360fa7845b5abc34f839d",
+    "semantic_hash": "5e148b32d5c360fa7845b5abc34f839d"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/babel.config.js": {
+    "mtime": 1780306751.5544372,
+    "ast_hash": "7ac3f1918be300a9d2a045def5a83be8",
+    "semantic_hash": "7ac3f1918be300a9d2a045def5a83be8"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/eslint.config.js": {
+    "mtime": 1780306751.5563154,
+    "ast_hash": "560a864580ad8107fbbf8d6d452c82fe",
+    "semantic_hash": "560a864580ad8107fbbf8d6d452c82fe"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/metro.config.js": {
+    "mtime": 1780306751.556639,
+    "ast_hash": "6d0170faf894069223e03800affeadf4",
+    "semantic_hash": "6d0170faf894069223e03800affeadf4"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/package.json": {
+    "mtime": 1780306751.5568779,
+    "ast_hash": "f7d070de20f54d2dcff3bef17ca54958",
+    "semantic_hash": "f7d070de20f54d2dcff3bef17ca54958"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/config/env.ts": {
+    "mtime": 1780306751.5577166,
+    "ast_hash": "f924304fb74c8da708c1be847447e2ac",
+    "semantic_hash": "f924304fb74c8da708c1be847447e2ac"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/constants/MyConstants.ts": {
+    "mtime": 1780306751.5580418,
+    "ast_hash": "a68b384d252ca7cc4248e6ca67e07599",
+    "semantic_hash": "a68b384d252ca7cc4248e6ca67e07599"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/di/container.ts": {
+    "mtime": 1780306751.558342,
+    "ast_hash": "8d17a916c4e2423da8a0443150a92369",
+    "semantic_hash": "8d17a916c4e2423da8a0443150a92369"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/errors/AppError.ts": {
+    "mtime": 1780306751.5591762,
+    "ast_hash": "8634003b230648f9e342ba789fa85191",
+    "semantic_hash": "8634003b230648f9e342ba789fa85191"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/i18n/i18next.d.ts": {
+    "mtime": 1780306751.559609,
+    "ast_hash": "26a0083652b2ec34a4849de3dc19763a",
+    "semantic_hash": "26a0083652b2ec34a4849de3dc19763a"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/i18n/index.ts": {
+    "mtime": 1780306751.5598216,
+    "ast_hash": "ffff90d46e12a9d051b5b6e6db0b47d2",
+    "semantic_hash": "ffff90d46e12a9d051b5b6e6db0b47d2"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/i18n/locales/en.json": {
+    "mtime": 1780306751.5601358,
+    "ast_hash": "82b7517a684707300bca8f440db0bf25",
+    "semantic_hash": "82b7517a684707300bca8f440db0bf25"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/i18n/locales/ta.json": {
+    "mtime": 1780306751.560347,
+    "ast_hash": "d44b070d0d22d34fd119ac29faa184cf",
+    "semantic_hash": "d44b070d0d22d34fd119ac29faa184cf"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/network/baseQuery.ts": {
+    "mtime": 1780306751.5606697,
+    "ast_hash": "d1df1801fdead66ec127cc3b04fb0726",
+    "semantic_hash": "d1df1801fdead66ec127cc3b04fb0726"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/store/hooks.ts": {
+    "mtime": 1780306751.561017,
+    "ast_hash": "0d25193316b9c9abb5f6f9a956581a1e",
+    "semantic_hash": "0d25193316b9c9abb5f6f9a956581a1e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/store/store.ts": {
+    "mtime": 1780306751.5613031,
+    "ast_hash": "4412ecfee26f32368bc393214540abd1",
+    "semantic_hash": "4412ecfee26f32368bc393214540abd1"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/AlertUtils.ts": {
+    "mtime": 1780306751.5621326,
+    "ast_hash": "2cc457750ce64ccca87155e6e29eabea",
+    "semantic_hash": "2cc457750ce64ccca87155e6e29eabea"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/DeviceInfoUtils.ts": {
+    "mtime": 1780306751.5624545,
+    "ast_hash": "c44a91d607525b711896b12049b4fc1e",
+    "semantic_hash": "c44a91d607525b711896b12049b4fc1e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/HapticsUtils.ts": {
+    "mtime": 1780306751.562802,
+    "ast_hash": "ec1002873849a31087631597325c1bda",
+    "semantic_hash": "ec1002873849a31087631597325c1bda"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/LinkingUtils.ts": {
+    "mtime": 1780306751.5630367,
+    "ast_hash": "a133e06ca838337a2f696715668eccce",
+    "semantic_hash": "a133e06ca838337a2f696715668eccce"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/NetworkUtils.ts": {
+    "mtime": 1780306751.563273,
+    "ast_hash": "99eacb4e594d17ec1afb4bc582028b93",
+    "semantic_hash": "99eacb4e594d17ec1afb4bc582028b93"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/ToastUtils.ts": {
+    "mtime": 1780306751.5634906,
+    "ast_hash": "0761b1d9e41d0b98be802689a637a7bb",
+    "semantic_hash": "0761b1d9e41d0b98be802689a637a7bb"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/core/utils/formatDate.ts": {
+    "mtime": 1780306751.56369,
+    "ast_hash": "6c53ee11039ad86edd57651ee8677542",
+    "semantic_hash": "6c53ee11039ad86edd57651ee8677542"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/data/api/postsApi.ts": {
+    "mtime": 1780306751.5642598,
+    "ast_hash": "ab28ef8b3b09bb5eea1111d0150be508",
+    "semantic_hash": "ab28ef8b3b09bb5eea1111d0150be508"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/data/models/PostModel.ts": {
+    "mtime": 1780306751.564612,
+    "ast_hash": "da95b80b446a36f7fb92f59e15988e4f",
+    "semantic_hash": "da95b80b446a36f7fb92f59e15988e4f"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/data/storage/LocalStore.ts": {
+    "mtime": 1780306751.5650072,
+    "ast_hash": "6d51701def4d1b811a7ee5a2dcb4ad88",
+    "semantic_hash": "6d51701def4d1b811a7ee5a2dcb4ad88"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/data/storage/MyStorageConstants.ts": {
+    "mtime": 1780306751.5652099,
+    "ast_hash": "d946f6c9a3365ccd73805dad37ca49d5",
+    "semantic_hash": "d946f6c9a3365ccd73805dad37ca49d5"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/domain/entities/Post.ts": {
+    "mtime": 1780306751.5656497,
+    "ast_hash": "c89184ff0cfe96a2aa66b8180b34bdf2",
+    "semantic_hash": "c89184ff0cfe96a2aa66b8180b34bdf2"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/domain/repositories/PostRepository.ts": {
+    "mtime": 1780306751.5659966,
+    "ast_hash": "872a050428183ebfd1836557fcb61904",
+    "semantic_hash": "872a050428183ebfd1836557fcb61904"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/domain/usecases/useGetPosts.ts": {
+    "mtime": 1780306751.5663404,
+    "ast_hash": "902c47e3da0a5910e5aa7e040cd5ad3c",
+    "semantic_hash": "902c47e3da0a5910e5aa7e040cd5ad3c"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/domain/usecases/useMutatePost.ts": {
+    "mtime": 1780306751.5665448,
+    "ast_hash": "22af732594e135c0d2ef88efe4273ffa",
+    "semantic_hash": "22af732594e135c0d2ef88efe4273ffa"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/components/CustomImage.tsx": {
+    "mtime": 1780306751.5670195,
+    "ast_hash": "432d4bcef3f28f73971d1bce6b4e772a",
+    "semantic_hash": "432d4bcef3f28f73971d1bce6b4e772a"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/components/PostCard.tsx": {
+    "mtime": 1780306751.567343,
+    "ast_hash": "46a14bda15b7b6fe615ea589766e8151",
+    "semantic_hash": "46a14bda15b7b6fe615ea589766e8151"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/navigation/RootNavigation.ts": {
+    "mtime": 1780306751.5676672,
+    "ast_hash": "e11e5f2fd6822644786020d84595d2d8",
+    "semantic_hash": "e11e5f2fd6822644786020d84595d2d8"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/navigation/Routes.ts": {
+    "mtime": 1780306751.5678592,
+    "ast_hash": "197a57851b5a782b8f361dd2920dc222",
+    "semantic_hash": "197a57851b5a782b8f361dd2920dc222"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/navigation/types.ts": {
+    "mtime": 1780306751.5680392,
+    "ast_hash": "5ecdfecf70c103830c042d49a173342a",
+    "semantic_hash": "5ecdfecf70c103830c042d49a173342a"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/postcrud/PostCrudScreen.tsx": {
+    "mtime": 1780306751.5685463,
+    "ast_hash": "1cb22c842aa0cbadf4ca02378313feb1",
+    "semantic_hash": "1cb22c842aa0cbadf4ca02378313feb1"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/postcrud/usePostCrud.ts": {
+    "mtime": 1780306751.568792,
+    "ast_hash": "876726143bed5ab4365a2f5eb3d743e5",
+    "semantic_hash": "876726143bed5ab4365a2f5eb3d743e5"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/postdetail/PostDetailScreen.tsx": {
+    "mtime": 1780306751.5691094,
+    "ast_hash": "cfa2ad603d95a00964446c1c143c708a",
+    "semantic_hash": "cfa2ad603d95a00964446c1c143c708a"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/postdetail/index.ts": {
+    "mtime": 1780306751.5692956,
+    "ast_hash": "1cfee6ae61f15669ea15378173f38b92",
+    "semantic_hash": "1cfee6ae61f15669ea15378173f38b92"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/postdetail/usePostDetail.ts": {
+    "mtime": 1780306751.569403,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/settings/SettingsScreen.tsx": {
+    "mtime": 1780306751.5699594,
+    "ast_hash": "7e3c9ef28df281c9f5aa580a67e6a43e",
+    "semantic_hash": "7e3c9ef28df281c9f5aa580a67e6a43e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/screens/settings/index.ts": {
+    "mtime": 1780306751.570206,
+    "ast_hash": "3300d61a322638b969a74863fbb6dfc0",
+    "semantic_hash": "3300d61a322638b969a74863fbb6dfc0"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/theme/ThemeContext.tsx": {
+    "mtime": 1780306751.5706043,
+    "ast_hash": "a6354ad8ddd1d28412115d11ca191202",
+    "semantic_hash": "a6354ad8ddd1d28412115d11ca191202"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/theme/makeStyles.ts": {
+    "mtime": 1780306751.570832,
+    "ast_hash": "cca06415b91e2332a96c017d49b3036c",
+    "semantic_hash": "cca06415b91e2332a96c017d49b3036c"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/src/presentation/theme/theme.ts": {
+    "mtime": 1780306751.5710268,
+    "ast_hash": "9bbb15a49f14d741f4ab0968be942611",
+    "semantic_hash": "9bbb15a49f14d741f4ab0968be942611"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/tsconfig.json": {
+    "mtime": 1780307279.013954,
+    "ast_hash": "808a2375ca10ab275fef18abe88e6e65",
+    "semantic_hash": "808a2375ca10ab275fef18abe88e6e65"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/CLAUDE.md": {
+    "mtime": 1780306932.6057012,
+    "ast_hash": "57cee03e051708e452798d11748c20c9",
+    "semantic_hash": "57cee03e051708e452798d11748c20c9"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/CODEBASE_DOCUMENTATION.md": {
+    "mtime": 1780306751.5477934,
+    "ast_hash": "4fc9a71d760ba0a1699b2462ec8049d5",
+    "semantic_hash": "4fc9a71d760ba0a1699b2462ec8049d5"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/README.md": {
+    "mtime": 1780306751.5478768,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/skills.md": {
+    "mtime": 1780306751.557178,
+    "ast_hash": "2c72dfd0bbc8254a0e72c1c77887cbb9",
+    "semantic_hash": "2c72dfd0bbc8254a0e72c1c77887cbb9"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/android-icon-background.png": {
+    "mtime": 1780306751.5502343,
+    "ast_hash": "2d65569cc0e2afdcea0af9f9902d4173",
+    "semantic_hash": "2d65569cc0e2afdcea0af9f9902d4173"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/android-icon-foreground.png": {
+    "mtime": 1780306751.5508084,
+    "ast_hash": "72e71a9c846c6aa4ae32476641a00e18",
+    "semantic_hash": "72e71a9c846c6aa4ae32476641a00e18"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/android-icon-monochrome.png": {
+    "mtime": 1780306751.5511343,
+    "ast_hash": "1e097dab989759fc0b69440092ca22cd",
+    "semantic_hash": "1e097dab989759fc0b69440092ca22cd"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/favicon.png": {
+    "mtime": 1780306751.5513191,
+    "ast_hash": "d9f444efbdfbe7931aa93beada07318a",
+    "semantic_hash": "d9f444efbdfbe7931aa93beada07318a"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/icon.png": {
+    "mtime": 1780306751.552662,
+    "ast_hash": "cb975bba2216ce10a60e6c0ffe9941a2",
+    "semantic_hash": "cb975bba2216ce10a60e6c0ffe9941a2"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/partial-react-logo.png": {
+    "mtime": 1780306751.5530128,
+    "ast_hash": "8f14e478886737f3323a2ac79c833749",
+    "semantic_hash": "8f14e478886737f3323a2ac79c833749"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/react-logo.png": {
+    "mtime": 1780306751.5532472,
+    "ast_hash": "695d5a1c6f29a689130f3aaa573aec6e",
+    "semantic_hash": "695d5a1c6f29a689130f3aaa573aec6e"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/react-logo@2x.png": {
+    "mtime": 1780306751.5535576,
+    "ast_hash": "b507e7f2c91ebc8fe24dee79ccb3b600",
+    "semantic_hash": "b507e7f2c91ebc8fe24dee79ccb3b600"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/react-logo@3x.png": {
+    "mtime": 1780306751.5538697,
+    "ast_hash": "8a4d0e5b845044e56e3b2df627d01cfd",
+    "semantic_hash": "8a4d0e5b845044e56e3b2df627d01cfd"
+  },
+  "/Users/xenovex/Documents/RN_Projects/expo-clean-arch/assets/images/splash-icon.png": {
+    "mtime": 1780306751.5542119,
+    "ast_hash": "97dae5a0e62ad8551d8a31897b425e63",
+    "semantic_hash": "97dae5a0e62ad8551d8a31897b425e63"
+  }
+}

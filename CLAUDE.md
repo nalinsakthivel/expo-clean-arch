@@ -27,47 +27,61 @@ src/
   presentation/        # screens, components, navigation, theme
 ```
 
+### Path aliases
+
+`@/*` resolves to `src/*` (configured in `tsconfig.json`). All cross-layer imports use this alias.
+
 ### State and networking
 
-All server state is managed by **RTK Query** (`@reduxjs/toolkit`). The single API slice lives at `src/data/api/postsApi.ts` (`createApi`). The Redux store at `src/core/store/store.ts` mounts only that slice.
+All server state managed by **RTK Query** (`@reduxjs/toolkit`). Single API slice at `src/data/api/postsApi.ts`. Redux store at `src/core/store/store.ts` mounts only that slice. Typed `useAppDispatch`/`useAppSelector` hooks at `src/core/store/hooks.ts`.
 
 `src/core/network/baseQuery.ts` wraps RTK's `fetchBaseQuery` with:
+
 - network connectivity check before every request
 - bearer token injection from `LocalStore`
 - cURL logging in dev mode
-- auto-clear storage + redirect to `/` on 401/403
+- auto-clear storage + `resetTo("/")` on 401/403
 
-### Domain use cases as hooks
+### Domain layer
 
-Domain use cases (`src/domain/usecases/`) are React hooks, not classes. They wrap RTK Query hooks exported from `postsApi` and expose a stable interface to the presentation layer:
+`PostRepository` (`src/domain/repositories/PostRepository.ts`) is an interface only — no class implements it. RTK Query serves as the de-facto implementation; the interface exists for architectural reference.
 
-- `useGetPosts` → wraps `useGetPostsQuery`
-- `useMutatePost` → wraps `useCreatePostMutation`, `useUpdatePostMutation`, `useDeletePostMutation`
+Domain use cases (`src/domain/usecases/`) are React hooks wrapping RTK Query:
+- `useGetPosts` → `useGetPostsQuery`
+- `useMutatePost` → `useCreatePostMutation`, `useUpdatePostMutation`, `useDeletePostMutation`
 
-Screen-level logic (`usePostCrudScreen`) composes these domain hooks and owns local UI state (form fields, editing ID, etc.).
+### Data/model transformation
+
+API DTOs use numeric `id`/`userId`; the domain `Post` entity uses `string`. `PostModel` (`src/data/models/PostModel.ts`) handles all DTO↔entity conversion. Always go through `PostModel` when bridging API responses to domain objects.
+
+### Screen structure
+
+Each screen lives at `src/presentation/screens/<name>/` with a colocated `use<Name>.ts` hook that owns all logic. Screens are thin — they only render. `usePostCrudScreen` composes `useGetPosts` + `useMutatePost` and owns local UI state (form fields, editing ID).
 
 ### DI
 
-`tsyringe` + `reflect-metadata` are imported but the container has no active registrations (`src/core/di/container.ts` just re-exports the empty container). Decorators/metadata plugins are still required in `babel.config.js` for tsyringe compatibility.
+`tsyringe` + `reflect-metadata` imported but container has no active registrations (`src/core/di/container.ts` re-exports the empty container). Decorator/metadata babel plugins still required for tsyringe compatibility. `zustand` is also in dependencies but not yet used.
 
 ### Storage
 
-`LocalStore` (`src/data/storage/LocalStore.ts`) abstracts `expo-secure-store` on native and `localStorage` on web. Used for auth token only.
+`LocalStore` (`src/data/storage/LocalStore.ts`) abstracts `expo-secure-store` on native and `localStorage` on web. Used for auth token only. Keys in `src/data/storage/MyStorageConstants.ts`.
 
 ### Theme
 
-`ThemeContext` (`src/presentation/theme/ThemeContext.tsx`) tracks dark/light/system preference. `useAppTheme()` hook exposes `{ theme, isDark, toggleTheme, setSystemTheme }`. `makeStyles` helper at `src/presentation/theme/makeStyles.ts` creates style factories that receive the theme.
+`ThemeContext` (`src/presentation/theme/ThemeContext.tsx`) tracks dark/light/system preference. `useAppTheme()` exposes `{ theme, isDark, toggleTheme, setSystemTheme }`. `makeStyles` at `src/presentation/theme/makeStyles.ts` creates style factories receiving the theme. Tokens (colors, spacing, typography, borderRadius) defined in `src/presentation/theme/theme.ts`.
 
 ### i18n
 
-`i18next` initialized in `src/core/i18n/index.ts`. Locales: `en`, `ta`. Auto-detects device language via `expo-localization`. Imported once in `app/_layout.tsx`.
+`i18next` initialized in `src/core/i18n/index.ts`. Locales: `en`, `ta`. Auto-detects device language via `expo-localization`. Imported once in `app/_layout.tsx`. Translation keys typed via `src/core/i18n/i18next.d.ts`.
 
 ### Routing
 
-expo-router file-based routing. Main routes:
+expo-router file-based routing. `app/index.tsx` redirects to `/(tabs)`. Main routes:
 - `app/(tabs)/index.tsx` → PostCrudScreen
 - `app/(tabs)/settings.tsx` → SettingsScreen
 - `app/post/[id].tsx` → PostDetailScreen
+
+Typed route constants at `src/presentation/navigation/Routes.ts`. Imperative navigation (e.g. post-401 redirect) via `resetTo` in `src/presentation/navigation/RootNavigation.ts`.
 
 ### Config
 
@@ -75,6 +89,7 @@ API base URL resolved in `src/core/config/env.ts`: `EXPO_PUBLIC_API_BASE_URL` en
 
 ## Notes
 
-- `CODEBASE_DOCUMENTATION.md` is stale — describes the old React Query + Axios + class-based use-case architecture that was replaced.
+- `CODEBASE_DOCUMENTATION.md` is stale — describes old React Query + Axios + class-based architecture.
 - `skills.md` is a developer reference guide, not runtime code.
 - Package manager: **bun** (`bun.lock` present).
+- Metro has a `tslib` alias fix and `unstable_enablePackageExports` enabled for web compatibility.

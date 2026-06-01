@@ -6,6 +6,7 @@ import { ThemeProvider, useAppTheme } from "@/presentation/theme/ThemeContext";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
+import React from "react";
 
 function RootContent() {
   const { isDark } = useAppTheme();

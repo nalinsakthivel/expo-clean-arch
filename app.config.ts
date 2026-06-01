@@ -9,7 +9,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   icon: "./assets/images/icon.png",
   scheme: "strucpoc",
   userInterfaceStyle: "automatic",
-  newArchEnabled: true,
   ios: {
     supportsTablet: true,
     bundleIdentifier: "com.nalinssn.struc-poc",
@@ -22,9 +21,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       monochromeImage: "./assets/images/android-icon-monochrome.png",
     },
     package: "com.nalinssn.struc_poc",
-    edgeToEdgeEnabled: true,
     predictiveBackGestureEnabled: false,
-    newArchEnabled: true,
   },
   web: {
     output: "static",
@@ -32,6 +29,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   plugins: [
     "expo-router",
+    "expo-font",
+    "expo-image",
+    "expo-localization",
+    "expo-secure-store",
+    "expo-web-browser",
     [
       "expo-splash-screen",
       {
